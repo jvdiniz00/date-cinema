@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Date - Cinema em Casa</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      padding: 30px;
+    }
+    .form-box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 100%;
+    }
+    .comidas {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      justify-items: center;
+      margin-top: 30px;
+    }
+    .comida-opcao {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 220px;
+      padding: 12px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .comida-opcao:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+    .comida-opcao img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .comida-opcao input {
+      margin-bottom: 6px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 18px;
+      background: #ff69b4;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #agradecimento {
+      display: none;
+      margin-top: 40px;
+    }
+    #agradecimento img {
+      width: 350px;
+      border-radius: 10px;
+    }
+  </style>
+  <script>
+    function mostrarAgradecimento() {
+      document.getElementById("formulario").style.display = "none";
+      document.getElementById("agradecimento").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+  <h1>🌸 Date Cinema em Casa</h1>
+  <p>Escolha o jantar da noite e prepare-se para um momento especial!</p>
+
+  <div class="form-box" id="formulario">
+    <form onsubmit="event.preventDefault(); mostrarAgradecimento();">
+      <div class="comidas">
+        <label class="comida-opcao">
+          <input type="radio" name="comida" value="Sushi" required>
+          <img src="sushi.jpg" alt="Sushi">
+          Sushi
+        </label>
+
+        <label class="comida-opcao">
+          <input type="radio" name="comida" value="Comida Italiana">
+          <img src="italiana.jpg" alt="Comida Italiana">
+          Comida Italiana
+        </label>
+
+        <label class="comida-opcao">
+          <input type="radio" name="comida" value="Comida Árabe">
+          <img src="arabe.jpg" alt="Comida Árabe">
+          Comida Árabe
+        </label>
+
+        <label class="comida-opcao">
+          <input type="radio" name="comida" value="Pipoca e Lanchinhos">
+          <img src="pipoca.jpg" alt="Pipoca">
+          Pipoca e Lanchinhos
+        </label>
+      </div>
+
+      <button type="submit">Confirmar escolha</button>
+    </form>
+  </div>
+
+  <div id="agradecimento">
+    <h2>💌 Obrigado pela resposta!</h2>
+    <p>Ansioso pelo nosso momentinho juntos...</p>
+    <img src="obrigado.jpg" alt="Gatinho agradecendo">
+  </div>
+</body>
+</html>
