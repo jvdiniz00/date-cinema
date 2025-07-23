@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -21,7 +20,7 @@
     }
     .comidas {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       justify-items: center;
       margin-top: 30px;
@@ -36,7 +35,7 @@
       border: 1px solid #ddd;
       border-radius: 12px;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
     .comida-opcao:hover {
       transform: scale(1.03);
@@ -73,8 +72,10 @@
   </style>
   <script>
     function mostrarAgradecimento() {
-      document.getElementById("formulario").style.display = "none";
-      document.getElementById("agradecimento").style.display = "block";
+      const form = document.getElementById("formulario");
+      const agradecimento = document.getElementById("agradecimento");
+      form.style.display = "none";
+      agradecimento.style.display = "block";
     }
   </script>
 </head>
@@ -105,7 +106,7 @@
 
         <label class="comida-opcao">
           <input type="radio" name="comida" value="Pipoca e Lanchinhos">
-          <img src="pipoca.jpg" alt="Pipoca">
+          <img src="pipoca.jpg" alt="Pipoca e Lanchinhos">
           Pipoca e Lanchinhos
         </label>
       </div>
