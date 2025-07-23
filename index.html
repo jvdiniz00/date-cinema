@@ -3,6 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Date - Cinema em Casa</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("7GbGwfeGcIiLRl5yt"); // Sua Public Key
+    })();
+
+    function enviarEmail(comida) {
+      emailjs.send("service_h5vzn5i", "template_gyt495k", {
+        comida_escolhida: comida
+      })
+      .then(() => {
+        console.log("E-mail enviado com sucesso!");
+      }, (error) => {
+        console.error("Erro ao enviar e-mail:", error);
+      });
+    }
+
+    function mostrarAgradecimento() {
+      const comidaSelecionada = document.querySelector('input[name="comida"]:checked');
+      if (comidaSelecionada) {
+        const comida = comidaSelecionada.value;
+        enviarEmail(comida);
+        document.getElementById("formulario").style.display = "none";
+        document.getElementById("agradecimento").style.display = "block";
+      }
+    }
+  </script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -20,7 +47,7 @@
     }
     .comidas {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       justify-items: center;
       margin-top: 30px;
@@ -70,14 +97,6 @@
       border-radius: 10px;
     }
   </style>
-  <script>
-    function mostrarAgradecimento() {
-      const form = document.getElementById("formulario");
-      const agradecimento = document.getElementById("agradecimento");
-      form.style.display = "none";
-      agradecimento.style.display = "block";
-    }
-  </script>
 </head>
 <body>
   <h1>🌸 Date Cinema em Casa</h1>
